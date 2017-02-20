@@ -8,6 +8,8 @@ class Admin extends DController
         Session::checkSession();
     }
 
+
+
     public function Index(){
         $this->home();
     }
