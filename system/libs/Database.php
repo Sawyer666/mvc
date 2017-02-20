@@ -21,7 +21,7 @@ class Database extends PDO
     {
         $keys = implode(',', array_keys($data));
         $values = ":" . implode(", :", array_keys($data));
-        // print_r($keys);
+
 
         $sql = "INSERT INTO $table($keys) VALUES ($values)";
         $stmt = $this->prepare($sql);
@@ -41,7 +41,7 @@ class Database extends PDO
         $sql = "UPDATE $table SET $updateKeys WHERE $cond";
         $stmt = $this->prepare($sql);
         foreach ($data as $key => $value) {
-            $stmt->bindparam(":$key", $value);
+            $stmt->bindValue(":$key", $value);
         }
         return $stmt->execute();
     }
@@ -59,7 +59,8 @@ class Database extends PDO
         return $stmt->rowCount();
     }
 
-    public function selectUser($sql, $username, $password){
+    public function selectUser($sql, $username, $password)
+    {
         $stmt = $this->prepare($sql);
         $stmt->execute(array($username, $password));
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
