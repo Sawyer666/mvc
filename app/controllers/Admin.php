@@ -14,7 +14,17 @@ class Admin extends DController
 
     public function home()
     {
+        $this->load->view('admin/header');
         $this->load->view('admin/home');
+        $this->load->view('admin/sidebar');
+        $this->load->view('admin/footer');
+    }
+
+    public function addCategory(){
+        $this->load->view('admin/header');
+        $this->load->view('admin/addcategory');
+        $this->load->view('admin/sidebar');
+        $this->load->view('admin/footer');
     }
 }
 
