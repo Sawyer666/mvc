@@ -8,9 +8,8 @@ class Admin extends DController
         Session::checkSession();
     }
 
-
-
-    public function Index(){
+    public function Index()
+    {
         $this->home();
     }
 
@@ -22,7 +21,21 @@ class Admin extends DController
         $this->load->view('admin/footer');
     }
 
-    public function addCategory(){
+    public function categoryList()
+    {
+        $this->load->view('admin/header');
+        $this->load->view('admin/sidebar');
+        $data = array();
+        $table = 'category';
+        $catModel = $this->load->model('CatModel');
+        $data['cat'] = $catModel->catList($table);
+        $this->load->view('admin/categorylist', $data);
+
+        $this->load->view('admin/footer');
+    }
+
+    public function addCategory()
+    {
         $this->load->view('admin/header');
         $this->load->view('admin/addcategory');
         $this->load->view('admin/sidebar');

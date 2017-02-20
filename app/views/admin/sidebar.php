@@ -5,5 +5,6 @@
 </ul>
 
 <ul>
-    <li><a href="<?echo  BASE_URL;?>/Admin/addCategory">Add Category</a></li>
+    <li><a href="<?echo  BASE_URL;?>Admin/addCategory">Add Category</a></li>
+    <li><a href="<?echo  BASE_URL;?>Admin/categoryList">Category List</a></li>
 </ul>
